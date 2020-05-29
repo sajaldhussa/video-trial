@@ -26,7 +26,7 @@ Router.post('/', function (req, res) {
               res.end();
     }else{
          id = save(email);
-         res.sendFile('verification.html', { root: '/public' });
+         res.sendFile('verification.html', { root: '../video-trial/public' });
     }
   })
 
