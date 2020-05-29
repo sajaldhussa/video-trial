@@ -1,27 +1,30 @@
-video {
-    transform: rotateY(180deg); 
+body{
+    background-color: #08aeea;
+    background-image: linear-gradient(225deg, #08aeea 0%, #2af598 100%);
+}
+.btn-grp{
+    margin: 0 auto;
+    padding-top: 250px;
+    width: fit-content;
+}
+.header{
+    color:#fff;
+}
+.form-group{
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 50px;
+}
+.continue-btn{
+    margin: 10px auto;
+    display: block;
+}
+#join-meeting,#start-meeting{
+    display: none;
 }
 
-.select {
-    height: 30px;
-}
-
-.h-90 {
-    height: 90% !important;
-}
-
-.h-10 {
-    height: 10% !important;
-}
-
-#peerVideo:hover {
-    opacity: 0.6;
-    cursor: pointer;
-}
-
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+@media (max-width: 768px) { 
+    .form-group{
+        width: 100%;
+    }
+ }
