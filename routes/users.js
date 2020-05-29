@@ -8,7 +8,7 @@ var uniqid = require('uniqid');
 
 let awsConfig = {
     "region": "us-east-1",
-    "accessKeyId": "AKIAQYAJDBOKEATULTWC", "secretAccessKey": "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"
+    "accessKeyId": "AKIAQYAJDBOKKITDZ4FF", "secretAccessKey": "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"
 };
 AWS.config.update(awsConfig);
 
