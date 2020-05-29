@@ -15,7 +15,7 @@ var params = {
     Body: {
       Html: {
        Charset: "UTF-8",
-       Data: "Please click on th link to verify: < a href='http://sajaldhussa.com/verification/"+ meetingId +"'> "
+       Data: "Please click <a href='http://sajaldhussa.com/verification/"+ meetingId +"'>Here</a> to verify."
       },
       Text: {
        Charset: "UTF-8",

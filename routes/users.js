@@ -18,23 +18,16 @@ Router.post('/', function (req, res) {
     let email = req.body.email;
     let user = ifUserExist(email);
     const id = null;
-    if(user){
-        if(user.verified){
+    if(user && user.verified){
             id = user.userId;
             res.writeHead(301,
                 {Location: 'https://video.sajaldhussa.com/meeting/'+id}
               );
               res.end();
-        } else{
-            
-        }
     }else{
          id = save(email);
+         res.sendFile('verification.html', { root: '../public' });
     }
-    res.writeHead(301,
-        {Location: 'http://sajaldhussa.com/verification/'+id}
-      );
-      res.end();
   })
 
   let ifUserExist = function(email) {
@@ -73,7 +66,7 @@ let save = function (email) {
             console.log("users::save::error - " + JSON.stringify(err, null, 2));                      
         } else {
             console.log("users::save::success" );   
-            EmailUtility.sendEmail(email);
+            EmailUtility.sendEmail(email, id);
         }
     });
     return id;  

@@ -14,7 +14,15 @@ let docClient = new AWS.DynamoDB.DocumentClient();
 
 Router.get('/:id', function (req, res) {
     const meetingId = req.params.id;
-    verify(meetingId);
+    const updated = verify(meetingId);
+    if(updated){
+        res.writeHead(301,
+            {Location: 'https://video.sajaldhussa.com/meeting/'+meetingId}
+          );
+          res.end();
+    }else{
+        res.sendFile('verification.html', { root: '../public' });
+    }
   })
 
   let verify = function(meetingId) {
