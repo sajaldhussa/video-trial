@@ -17,7 +17,7 @@ let docClient = new AWS.DynamoDB.DocumentClient();
 Router.post('/', function (req, res) {
     let email = req.body.email;
     let user = ifUserExist(email);
-    const id = null;
+    let id = null;
     if(user && user.verified){
             id = user.userId;
             res.writeHead(301,
