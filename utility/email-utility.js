@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 // Set the region 
-AWS.config.update({region: 'us-east-1', accessKeyId: "AKIAQYAJDBOKKITDZ4FF", secretAccessKey: "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"});
+AWS.config.update({region: 'us-east-1', accessKeyId: "AKIAQYAJDBOKEATULTWC", secretAccessKey: "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"});
 
 
 // Create sendEmail params 
