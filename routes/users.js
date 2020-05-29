@@ -8,7 +8,7 @@ var uniqid = require('uniqid');
 
 let awsConfig = {
     "region": "us-east-1",
-    "accessKeyId": "AKIAQYAJDBOKIWJQWLZX", "secretAccessKey": "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"
+    "accessKeyId": "AKIAICTVY5PKGUUX6G4A", "secretAccessKey": "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"
 };
 AWS.config.update(awsConfig);
 
@@ -26,7 +26,7 @@ Router.post('/', function (req, res) {
               res.end();
     }else{
          id = save(email);
-         res.sendFile('verification.html', { root: '../public' });
+         res.sendFile('verification.html', { root: '/public' });
     }
   })
 
