@@ -34,7 +34,7 @@ Router.post('/', function (req, res) {
     var params = {
         TableName: 'users',
         Key:{
-            "userId": email
+            "user_id": email
         }
     };
     let user = null;
