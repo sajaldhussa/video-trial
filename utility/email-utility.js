@@ -5,7 +5,8 @@ AWS.config.update({region: 'us-east-1', accessKeyId: "", secretAccessKey: ""});
 
 // Create sendEmail params 
 var sendEmail = function(email, meetingId) {
-  const encodedValue = btoa("email=" + email + ";meetingId="+ meetingId);
+
+const encodedValue = Buffer.from("email=" + email + ";meetingId="+ meetingId).toString('base64');
 var params = {
   Destination: { /* required */
     ToAddresses: [

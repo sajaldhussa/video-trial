@@ -58,7 +58,8 @@ Router.get('/:id', function (req, res) {
 
    function decodeIds(param) {
 	try {
-		const decoded = atob(param);
+        const decoded = Buffer.from(param, 'base64').toString();
+
 		const result = {};
 
 		decoded.split(';').forEach(item => {
