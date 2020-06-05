@@ -28,12 +28,12 @@ Router.get('/:id', function (req, res) {
   let verify = async function(meetingId) {
     var params = {
         TableName:"users",
-        ConditionExpression = "meeting_id = :meetingId",
         UpdateExpression: "set info.verified = :r",
         ExpressionAttributeValues:{
             ":r":true,
             ":meetingId":meetingId
         },
+        ConditionExpression = "meeting_id = :meetingId",
         ReturnValues:"UPDATED_NEW"
     };
     
