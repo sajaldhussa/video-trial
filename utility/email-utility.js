@@ -5,6 +5,7 @@ AWS.config.update({region: 'us-east-1', accessKeyId: "", secretAccessKey: ""});
 
 // Create sendEmail params 
 var sendEmail = function(email, meetingId) {
+  const encodedValue = btoa("email=" + email + ";meetingId="+ meetingId);
 var params = {
   Destination: { /* required */
     ToAddresses: [
@@ -15,7 +16,7 @@ var params = {
     Body: {
       Html: {
        Charset: "UTF-8",
-       Data: "Please click <a href='http://sajaldhussa.com/verification/"+ meetingId +"'>Here</a> to verify."
+       Data: "Please click <a href='http://sajaldhussa.com/verification/"+ encodedValue +"'>Here</a> to verify."
       },
       Text: {
        Charset: "UTF-8",

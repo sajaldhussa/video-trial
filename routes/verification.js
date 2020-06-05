@@ -13,8 +13,11 @@ AWS.config.update(awsConfig);
 let docClient = new AWS.DynamoDB.DocumentClient();
 
 Router.get('/:id', function (req, res) {
-    const meetingId = req.params.id;
-    const updated = verify(meetingId);
+    const param = req.params.id;
+    const decodedValue = decodeIds(param);
+    const meetingId = decodedValue.meetingId;
+    const email = decodedValue.email;
+    const updated = verify(email,meetingId);
     if(updated){
         res.writeHead(301,
             {Location: 'https://video.sajaldhussa.com/meeting/'+meetingId}
@@ -25,9 +28,12 @@ Router.get('/:id', function (req, res) {
     }
   })
 
-  let verify = async function(meetingId) {
+  let verify = async function(userId, meetingId) {
     var params = {
         TableName:"users",
+        Key:{
+            "user_id": userId
+        },
         UpdateExpression: "set info.verified = :r",
         ExpressionAttributeValues:{
             ":r":true,
@@ -49,5 +55,28 @@ Router.get('/:id', function (req, res) {
     });
     return updated;
   }
+
+   function decodeIds(param) {
+	try {
+		const decoded = atob(param);
+		const result = {};
+
+		decoded.split(';').forEach(item => {
+			const [key, value] = item.split('=');
+
+			if ((key === 'email' || key === 'email') && value) {
+				result.email = value;
+			}
+
+			if (key === 'meetingId') {
+				result.meetingId = value;
+			}
+		});
+
+		return result;
+	} catch (e) {
+		return undefined;
+	}
+}
 
 module.exports = Router;
