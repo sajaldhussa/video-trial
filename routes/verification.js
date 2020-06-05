@@ -33,7 +33,7 @@ Router.get('/:id', function (req, res) {
             ":r":true,
             ":meetingId":meetingId
         },
-        ConditionExpression = "meeting_id = :meetingId",
+        ConditionExpression: "meeting_id = :meetingId",
         ReturnValues:"UPDATED_NEW"
     };
     
