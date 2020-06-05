@@ -21,13 +21,13 @@ Router.get('/:id', function (req, res) {
           );
           res.end();
     }else{
-        res.sendFile('verification.html', { root: '../public' });
+        res.sendFile('verification.html', { root: '../video-trial/public' });
     }
   })
 
-  let verify = function(meetingId) {
+  let verify = async function(meetingId) {
     var params = {
-        TableName:users,
+        TableName:"users",
         Key:{
             "meeting_id": meetingId
         },
@@ -40,7 +40,7 @@ Router.get('/:id', function (req, res) {
     
     console.log("Updating the item...");
     let updated = false;
-    docClient.update(params, function(err, data) {
+    await docClient.update(params, function(err, data) {
         if (err) {
             console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
         } else {
