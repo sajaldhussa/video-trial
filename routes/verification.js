@@ -25,6 +25,8 @@ Router.get('/:id', function (req, res) {
   })
 
   let verify = async function(userId, meetingId) {
+      console.log(userId);
+      console.log(meetingId);
     var params = {
         TableName:"users",
         Key:{
