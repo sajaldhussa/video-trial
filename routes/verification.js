@@ -32,10 +32,12 @@ Router.get('/:id', function (req, res) {
         Key:{
             "user_id": userId
         },
-        UpdateExpression: "set info.verified = :r",
+        UpdateExpression: "set verified = :r",
         ExpressionAttributeValues:{
-            ":r":true
+            ":r":true,
+            ":meetingId":meetingId
         },
+        ConditionExpression: "meeting_id = :meetingId",
         ReturnValues:"UPDATED_NEW"
     };
     
