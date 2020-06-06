@@ -6,11 +6,7 @@ const EmailUtility = require('.././utility/email-utility')
 var AWS = require("aws-sdk");
 var uniqid = require('uniqid');
 
-let awsConfig = {
-    "region": "us-east-1",
-    "accessKeyId": "", "secretAccessKey": ""
-};
-AWS.config.update(awsConfig);
+AWS.config.loadFromPath('.././config/config.json');
 
 let docClient = new AWS.DynamoDB.DocumentClient();
 

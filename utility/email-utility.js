@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 // Set the region 
-AWS.config.update({region: 'us-east-1', accessKeyId: "", secretAccessKey: ""});
+AWS.config.loadFromPath('.././config/config.json');
 
 
 // Create sendEmail params 
@@ -17,7 +17,7 @@ var params = {
     Body: {
       Html: {
        Charset: "UTF-8",
-       Data: "Please click <a href='http://sajaldhussa.com/verification/"+ encodedValue +"'>Here</a> to verify."
+       Data: "Please click <a href='http://sajaldhussa.com/verification/"+ encodedValue +"'>Here</a> to join meeting."
       },
       Text: {
        Charset: "UTF-8",
@@ -26,7 +26,7 @@ var params = {
      },
      Subject: {
       Charset: 'UTF-8',
-      Data: 'Verification Email'
+      Data: 'Meeting Link'
      }
     },
   Source: 'verification@sajaldhussa.com',
