@@ -30,7 +30,7 @@ Router.get('/:id', function (req, res) {
     var params = {
         TableName:"users",
         Key:{
-            "user_id": userId
+            "user_id": "*"
         },
         UpdateExpression: "set verified = :r",
         ExpressionAttributeValues:{
