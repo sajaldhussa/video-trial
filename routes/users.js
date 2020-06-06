@@ -6,7 +6,7 @@ const EmailUtility = require('.././utility/email-utility')
 var AWS = require("aws-sdk");
 var uniqid = require('uniqid');
 
-AWS.config.loadFromPath('.././config/config.json');
+AWS.config.loadFromPath('./config/config.json');
 
 let docClient = new AWS.DynamoDB.DocumentClient();
 

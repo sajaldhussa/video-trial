@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 // Set the region 
-AWS.config.loadFromPath('.././config/config.json');
+AWS.config.loadFromPath('./config/config.json');
 
 
 // Create sendEmail params 

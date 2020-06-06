@@ -4,7 +4,7 @@ Router.use(express.urlencoded())
 
 var AWS = require("aws-sdk");
 
-AWS.config.loadFromPath('.././config/config.json');
+AWS.config.loadFromPath('./config/config.json');
 
 let docClient = new AWS.DynamoDB.DocumentClient();
 
