@@ -34,10 +34,8 @@ Router.get('/:id', function (req, res) {
         },
         UpdateExpression: "set info.verified = :r",
         ExpressionAttributeValues:{
-            ":r":true,
-            ":meetingId":meetingId
+            ":r":true
         },
-        ConditionExpression: "meeting_id = :meetingId",
         ReturnValues:"UPDATED_NEW"
     };
     
